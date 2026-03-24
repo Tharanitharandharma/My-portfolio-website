@@ -432,67 +432,88 @@ const HowIThink = () => {
       stage: "Empathize", 
       desc: "Deep diving into user worlds through research and interviews.", 
       artifact: "User Journey Maps",
-      icon: <Users className="w-5 h-5" />
+      icon: <Users className="w-6 h-6" />,
+      color: "from-blue-500/20 to-transparent",
+      accent: "text-blue-400"
     },
     { 
       stage: "Define", 
       desc: "Synthesizing insights to anchor the project in a clear problem statement.", 
       artifact: "User Stories & Personas",
-      icon: <Search className="w-5 h-5" />
+      icon: <Search className="w-6 h-6" />,
+      color: "from-purple-500/20 to-transparent",
+      accent: "text-purple-400"
     },
     { 
       stage: "Ideate", 
       desc: "Exploration without boundaries, followed by structured sketching.", 
       artifact: "Wireframe Iterations",
-      icon: <Layers className="w-5 h-5" />
+      icon: <Layers className="w-6 h-6" />,
+      color: "from-pink-500/20 to-transparent",
+      accent: "text-pink-400"
     },
     { 
       stage: "Prototype", 
       desc: "Bringing ideas to life with interactive, high-fidelity flows.", 
       artifact: "Interactive Prototypes",
-      icon: <Layout className="w-5 h-5" />
+      icon: <Layout className="w-6 h-6" />,
+      color: "from-orange-500/20 to-transparent",
+      accent: "text-orange-400"
     },
     { 
       stage: "Test", 
       desc: "Validating assumptions with real users to refine and perfect.", 
       artifact: "Usability Reports",
-      icon: <CheckCircle2 className="w-5 h-5" />
+      icon: <CheckCircle2 className="w-6 h-6" />,
+      color: "from-green-500/20 to-transparent",
+      accent: "text-green-400"
     }
   ];
 
   return (
-    <section className="py-12 px-6 max-w-7xl mx-auto">
+    <section className="py-24 px-6 max-w-7xl mx-auto overflow-hidden">
       <ParallaxSection offset={30}>
-        <div className="flex items-center gap-3 mb-6">
-          <Brain className="w-5 h-5 text-white/40" />
-          <h2 className="text-sm uppercase tracking-[0.4em] text-muted">How I Think</h2>
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-6">
+          <div>
+            <div className="flex items-center gap-3 mb-4">
+              <Brain className="w-5 h-5 text-white/40" />
+              <h2 className="text-sm uppercase tracking-[0.4em] text-muted">The Process</h2>
+            </div>
+            <h3 className="text-5xl md:text-7xl font-bold tracking-tighter">How I Think <AnimatedEmoji emoji="🧠" /></h3>
+          </div>
+          <p className="max-w-md text-muted text-lg italic">
+            A systematic approach to solving complex problems through design thinking.
+          </p>
         </div>
         
-        <div className="space-y-4">
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
           {steps.map((step, i) => (
             <motion.div 
               key={i}
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="bento-card flex flex-col md:flex-row md:items-center justify-between gap-6 group"
+              className={`relative p-8 rounded-[32px] bg-gradient-to-b ${step.color} border border-white/5 flex flex-col justify-between min-h-[320px] group hover:border-white/20 transition-all duration-500`}
             >
-              <div className="flex items-center gap-6">
-                <div className="w-12 h-12 rounded-2xl bg-white/5 flex items-center justify-center text-white/40 group-hover:bg-white group-hover:text-black transition-all duration-500">
+              <div className="relative z-10">
+                <div className={`mb-6 ${step.accent} opacity-60 group-hover:opacity-100 transition-opacity`}>
                   {step.icon}
                 </div>
-                <div>
-                  <h4 className="text-xl font-bold tracking-tight">{step.stage}</h4>
-                  <p className="text-muted text-sm max-w-md">{step.desc}</p>
-                </div>
+                <span className="text-4xl font-black opacity-10 absolute -top-2 -right-2 tracking-tighter">{i + 1}</span>
+                <h4 className="text-2xl font-bold tracking-tight mb-4">{step.stage}</h4>
+                <p className="text-muted text-sm leading-relaxed">{step.desc}</p>
               </div>
-              <div className="flex items-center gap-2">
-                <span className="text-[10px] uppercase tracking-widest text-white/20 font-bold">Artifact</span>
-                <span className="px-4 py-2 bg-white/5 border border-white/10 rounded-full text-[10px] font-bold uppercase tracking-widest text-white/60">
+              
+              <div className="relative z-10 mt-8">
+                <span className="text-[10px] uppercase tracking-widest text-white/20 font-bold block mb-2">Key Artifact</span>
+                <span className={`text-[10px] font-bold uppercase tracking-widest ${step.accent}`}>
                   {step.artifact}
                 </span>
               </div>
+              
+              {/* Decorative Glow */}
+              <div className={`absolute inset-0 bg-gradient-to-br ${step.color} opacity-0 group-hover:opacity-10 transition-opacity rounded-[32px]`} />
             </motion.div>
           ))}
         </div>
@@ -631,46 +652,57 @@ const DesignValues = () => {
     {
       title: "Accessibility First",
       desc: "Designing with WCAG 2.2 focus to ensure digital experiences are inclusive for everyone, regardless of ability.",
-      icon: <Accessibility className="w-6 h-6" />
+      icon: <Accessibility className="w-8 h-8" />,
+      color: "bg-blue-500/10",
+      border: "border-blue-500/20",
+      glow: "shadow-[0_0_50px_rgba(59,130,246,0.1)]"
     },
     {
       title: "Data-Informed",
       desc: "Using analytics and user feedback as a compass, not a cage. Balancing hard data with design intuition.",
-      icon: <BarChart3 className="w-6 h-6" />
+      icon: <BarChart3 className="w-8 h-8" />,
+      color: "bg-purple-500/10",
+      border: "border-purple-500/20",
+      glow: "shadow-[0_0_50px_rgba(168,85,247,0.1)]"
     },
     {
       title: "Ethical AI",
       desc: "Designing AI interactions that prioritize transparency, user agency, and trust in the machine-human loop.",
-      icon: <Cpu className="w-6 h-6" />
+      icon: <Cpu className="w-8 h-8" />,
+      color: "bg-orange-500/10",
+      border: "border-orange-500/20",
+      glow: "shadow-[0_0_50px_rgba(249,115,22,0.1)]"
     }
   ];
 
   return (
     <section className="py-24 px-6 max-w-7xl mx-auto">
       <ParallaxSection offset={40}>
-        <div className="flex items-center gap-3 mb-12">
+        <div className="flex items-center gap-3 mb-16">
           <Heart className="w-5 h-5 text-white/40" />
           <h2 className="text-sm uppercase tracking-[0.4em] text-muted">Human Values</h2>
         </div>
         
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="bento-card bg-gradient-to-br from-[#0A0A0A] to-[#111] p-12"
-        >
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-            {values.map((v, i) => (
-              <div key={i} className="space-y-6">
-                <div className="text-white/40">{v.icon}</div>
-                <h4 className="text-2xl font-bold tracking-tight">{v.title}</h4>
-                <p className="text-muted leading-relaxed font-light text-lg italic">
-                  {v.desc}
-                </p>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {values.map((v, i) => (
+            <motion.div 
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1 }}
+              className={`p-12 rounded-[40px] ${v.color} border ${v.border} ${v.glow} backdrop-blur-xl flex flex-col items-center text-center group hover:scale-[1.02] transition-all duration-500`}
+            >
+              <div className="mb-8 p-6 bg-white/5 rounded-3xl group-hover:bg-white group-hover:text-black transition-all duration-500">
+                {v.icon}
               </div>
-            ))}
-          </div>
-        </motion.div>
+              <h4 className="text-3xl font-bold tracking-tight mb-6">{v.title}</h4>
+              <p className="text-muted leading-relaxed text-lg font-light italic">
+                "{v.desc}"
+              </p>
+            </motion.div>
+          ))}
+        </div>
       </ParallaxSection>
     </section>
   );
@@ -755,52 +787,101 @@ const Experience = () => {
 const Skills = () => {
   const categories = [
     {
-      title: "Design Tools",
+      title: "Design Ecosystem",
       skills: ["Figma", "Adobe XD", "Photoshop", "Illustrator", "Balsamiq", "Canva"],
-      icon: <Figma className="w-5 h-5" />
+      icon: <Figma className="w-8 h-8" />,
+      desc: "Crafting pixel-perfect interfaces and scalable design systems.",
+      color: "from-blue-500/20 to-transparent",
+      accent: "text-blue-400",
+      span: "md:col-span-2 md:row-span-2"
     },
     {
-      title: "UX Design",
+      title: "UX Strategy",
       skills: ["User Flow", "Wireframing", "Prototyping", "Usability Testing", "WCAG 2.2", "Design Systems"],
-      icon: <Layout className="w-5 h-5" />
+      icon: <Layout className="w-6 h-6" />,
+      desc: "Human-centered approach to complex problems.",
+      color: "from-purple-500/20 to-transparent",
+      accent: "text-purple-400",
+      span: "md:col-span-1 md:row-span-1"
     },
     {
       title: "Collaboration",
-      skills: ["Miro", "Notion", "Jira", "Stakeholder Communication", "Lean UX", "Design Sprints"],
-      icon: <Users className="w-5 h-5" />
+      skills: ["Miro", "Notion", "Jira", "Lean UX", "Design Sprints"],
+      icon: <Users className="w-6 h-6" />,
+      desc: "Bridging the gap between design and engineering.",
+      color: "from-green-500/20 to-transparent",
+      accent: "text-green-400",
+      span: "md:col-span-1 md:row-span-1"
+    },
+    {
+      title: "Development & Low-Code",
+      skills: ["Framer", "WordPress", "HTML/CSS", "SEO", "Marketing Design"],
+      icon: <Cpu className="w-6 h-6" />,
+      desc: "Bringing designs to life with modern web technologies.",
+      color: "from-orange-500/20 to-transparent",
+      accent: "text-orange-400",
+      span: "md:col-span-2 md:row-span-1"
     }
   ];
 
   return (
-    <section className="py-12 px-6 max-w-7xl mx-auto">
+    <section id="skills" className="py-24 px-6 max-w-7xl mx-auto">
       <ParallaxSection offset={30}>
-        <div className="flex items-center gap-3 mb-6">
-          <Wrench className="w-5 h-5 text-white/40" />
-          <h2 className="text-sm uppercase tracking-[0.4em] text-muted">Skills & Tools</h2>
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-6">
+          <div>
+            <div className="flex items-center gap-3 mb-4">
+              <Wrench className="w-5 h-5 text-white/40" />
+              <h2 className="text-sm uppercase tracking-[0.4em] text-muted">Expertise</h2>
+            </div>
+            <h3 className="text-5xl md:text-7xl font-bold tracking-tighter">Skills & Tools <AnimatedEmoji emoji="🛠️" /></h3>
+          </div>
+          <p className="max-w-md text-muted text-lg font-light leading-relaxed">
+            A curated selection of tools and methodologies I use to build world-class digital products.
+          </p>
         </div>
+
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {categories.map((cat, i) => (
             <motion.div 
               key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="bento-card"
+              className={`relative p-10 rounded-[48px] bg-white/[0.02] backdrop-blur-3xl border border-white/10 overflow-hidden group hover:border-white/20 transition-all duration-500 ${cat.span}`}
             >
-              <div className="flex items-center gap-3 mb-8">
-                <div className="p-2 bg-white/5 rounded-lg text-white/60">
-                  {cat.icon}
+              <div className="relative z-10 h-full flex flex-col">
+                <div className="flex justify-between items-start mb-12">
+                  <div className={`p-4 bg-white/5 rounded-2xl ${cat.accent} group-hover:bg-white group-hover:text-black transition-all duration-500`}>
+                    {cat.icon}
+                  </div>
+                  <div className="flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <Sparkles className={`w-4 h-4 ${cat.accent}`} />
+                  </div>
                 </div>
-                <h4 className="text-lg font-bold tracking-tight">{cat.title}</h4>
+
+                <div className="mt-auto">
+                  <h4 className="text-3xl font-bold tracking-tight mb-4">{cat.title}</h4>
+                  <p className="text-muted text-sm mb-8 max-w-xs">{cat.desc}</p>
+                  
+                  <div className="flex flex-wrap gap-2">
+                    {cat.skills.map((s, j) => (
+                      <span 
+                        key={j} 
+                        className="px-4 py-2 bg-white/5 rounded-full text-[10px] uppercase tracking-widest font-bold text-white/60 hover:bg-white hover:text-black transition-all cursor-default border border-white/5"
+                      >
+                        {s}
+                      </span>
+                    ))}
+                  </div>
+                </div>
               </div>
-              <div className="flex flex-wrap gap-2">
-                {cat.skills.map((s, j) => (
-                  <span key={j} className="px-4 py-2 bg-white/5 rounded-xl text-xs font-medium text-white/80 hover:bg-white hover:text-black transition-all cursor-default">
-                    {s}
-                  </span>
-                ))}
-              </div>
+
+              {/* Background Glow */}
+              <div className={`absolute -bottom-20 -right-20 w-80 h-80 bg-gradient-to-br ${cat.color} blur-[100px] opacity-20 group-hover:opacity-40 transition-opacity duration-700`} />
+              
+              {/* Subtle Grid Pattern Overlay */}
+              <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)', backgroundSize: '24px 24px' }} />
             </motion.div>
           ))}
         </div>
@@ -885,12 +966,12 @@ const EducationCerts = () => {
         </div>
 
         {/* Awards Section */}
-        <div>
+        <div className="mt-24">
           <div className="flex items-center gap-3 mb-12">
             <Trophy className="w-5 h-5 text-white/40" />
             <h2 className="text-sm uppercase tracking-[0.4em] text-muted">Awards & Recognition</h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {awards.map((award, i) => (
               <motion.div 
                 key={i}
@@ -898,10 +979,19 @@ const EducationCerts = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="bento-card"
+                className="relative p-12 rounded-[40px] bg-gradient-to-br from-neutral-900 to-black border border-white/5 overflow-hidden group hover:border-white/20 transition-all duration-500"
               >
-                <h4 className="text-xl font-bold mb-4">{award.title}</h4>
-                <p className="text-muted text-sm leading-relaxed">{award.desc}</p>
+                <div className="relative z-10">
+                  <div className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center mb-8 group-hover:bg-white group-hover:text-black transition-all duration-500">
+                    <Award className="w-6 h-6" />
+                  </div>
+                  <h4 className="text-3xl font-bold tracking-tight mb-4 leading-tight">{award.title}</h4>
+                  <p className="text-muted text-lg leading-relaxed font-light">{award.desc}</p>
+                </div>
+                
+                {/* Decorative Elements */}
+                <div className="absolute -right-10 -bottom-10 w-40 h-40 bg-white/5 rounded-full blur-3xl group-hover:bg-white/10 transition-all" />
+                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
               </motion.div>
             ))}
           </div>
@@ -988,45 +1078,49 @@ const DesignersSurvivalKit = () => {
       title: "The Fuel",
       subtitle: "Primary Power Source",
       footer: "Status: 85% Charged",
-      icon: <Coffee className="w-8 h-8 text-white" />,
-      glow: "shadow-[0_0_30px_rgba(255,255,255,0.1)]"
+      icon: <Coffee className="w-10 h-10 text-white" />,
+      glow: "bg-orange-500/20",
+      accent: "text-orange-400"
     },
     {
       title: "The Focus",
       subtitle: "Deep Work Trigger",
       footer: "ANC: Active",
-      icon: <Headphones className="w-8 h-8 text-white" />,
-      glow: "shadow-[0_0_30px_rgba(255,255,255,0.1)]"
+      icon: <Headphones className="w-10 h-10 text-white" />,
+      glow: "bg-blue-500/20",
+      accent: "text-blue-400"
     },
     {
       title: "The Lifesaver",
       subtitle: "My Best Friend",
       footer: "Uses: Infinite",
       icon: (
-        <div className="flex items-center justify-center bg-white text-black font-black text-2xl w-16 h-16 rounded-2xl shadow-xl">
+        <div className="flex items-center justify-center bg-white text-black font-black text-3xl w-20 h-20 rounded-3xl shadow-2xl">
           ⌘Z
         </div>
       ),
-      glow: "shadow-[0_0_30px_rgba(255,255,255,0.2)]"
+      glow: "bg-purple-500/20",
+      accent: "text-purple-400"
     },
     {
       title: "The Moral Support",
       subtitle: "Chief Moral Officer",
       footer: "Watering: Pending",
-      icon: <Flower2 className="w-8 h-8 text-white" />,
-      glow: "shadow-[0_0_30px_rgba(255,255,255,0.1)]"
+      icon: <Flower2 className="w-10 h-10 text-white" />,
+      glow: "bg-green-500/20",
+      accent: "text-green-400"
     }
   ];
 
   return (
-    <section className="py-12 px-6 max-w-7xl mx-auto">
+    <section className="py-24 px-6 max-w-7xl mx-auto">
       <ParallaxSection offset={20}>
-        <div className="flex items-center gap-3 mb-8">
+        <div className="flex items-center gap-3 mb-12">
           <Wrench className="w-5 h-5 text-white/40" />
-          <h2 className="text-sm uppercase tracking-[0.4em] text-muted">Designer's Survival Kit</h2>
+          <h2 className="text-sm uppercase tracking-[0.4em] text-muted">Survival Kit</h2>
         </div>
         
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {kit.map((item, i) => (
             <motion.div 
               key={i}
@@ -1034,43 +1128,41 @@ const DesignersSurvivalKit = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              whileHover={{ 
-                scale: 1.05,
-                boxShadow: "0 0 40px rgba(255,255,255,0.15)",
-                borderColor: "rgba(255,255,255,0.3)"
-              }}
-              className={`aspect-square bg-neutral-950 border border-white/10 rounded-[32px] p-6 flex flex-col justify-between backdrop-blur-md transition-all duration-500 group cursor-default`}
+              whileHover={{ y: -10 }}
+              className="relative aspect-square bg-white/[0.02] backdrop-blur-2xl border border-white/10 rounded-[48px] p-10 flex flex-col justify-between overflow-hidden group transition-all duration-500"
             >
-              <div className="text-xs uppercase tracking-widest text-white/50 font-bold">
-                {item.title}
+              <div className="relative z-10 flex justify-between items-start">
+                <span className="text-[10px] uppercase tracking-[0.3em] text-white/40 font-black">{item.title}</span>
+                <div className={`w-2 h-2 rounded-full ${item.glow} animate-pulse`} />
               </div>
               
-              <div className="flex flex-col items-center justify-center flex-grow py-4">
+              <div className="relative z-10 flex flex-col items-center justify-center flex-grow">
                 <motion.div 
                   animate={{ 
-                    y: [0, -5, 0],
+                    y: [0, -8, 0],
+                    rotate: [0, 5, -5, 0]
                   }}
                   transition={{ 
-                    duration: 4, 
+                    duration: 5, 
                     repeat: Infinity, 
                     ease: "easeInOut",
                     delay: i * 0.5
                   }}
-                  className="relative"
                 >
-                  <div className={`absolute inset-0 blur-2xl opacity-20 bg-white rounded-full ${item.glow}`} />
-                  <div className="relative z-10">
-                    {item.icon}
-                  </div>
+                  {item.icon}
                 </motion.div>
-                <h4 className="text-lg font-semibold text-white mt-6 text-center leading-tight">
+                <h4 className="text-2xl font-bold text-white mt-8 text-center tracking-tight">
                   {item.subtitle}
                 </h4>
               </div>
               
-              <div className="text-[10px] uppercase tracking-[0.2em] text-white/30 font-bold border-t border-white/5 pt-4">
-                {item.footer}
+              <div className="relative z-10 flex justify-between items-center pt-6 border-t border-white/5">
+                <span className="text-[10px] uppercase tracking-widest text-white/20 font-bold">{item.footer}</span>
+                <div className={`text-[10px] font-black uppercase tracking-widest ${item.accent} opacity-0 group-hover:opacity-100 transition-opacity`}>Active</div>
               </div>
+              
+              {/* Background Glow */}
+              <div className={`absolute -bottom-20 -right-20 w-64 h-64 ${item.glow} blur-[100px] opacity-20 group-hover:opacity-40 transition-opacity duration-700`} />
             </motion.div>
           ))}
         </div>
