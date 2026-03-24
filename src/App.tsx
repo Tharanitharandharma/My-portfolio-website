@@ -41,7 +41,8 @@ import {
   Heart,
   Headphones,
   Keyboard,
-  Flower2
+  Flower2,
+  Dribbble
 } from "lucide-react";
 import { useRef, useState, useEffect, ReactNode } from "react";
 
@@ -86,7 +87,7 @@ const Hero = () => {
   const opacity = useTransform(scrollY, [0, 300], [1, 0]);
 
   return (
-    <section className="relative h-screen flex items-center justify-center overflow-hidden bg-black">
+    <section id="home" className="relative h-screen flex items-center justify-center overflow-hidden bg-black">
       <motion.div 
         style={{ y: y1, opacity }}
         className="z-10 text-center px-4"
@@ -214,7 +215,7 @@ const CaseStudies = () => {
   ];
 
   return (
-    <section className="py-12 px-6 max-w-7xl mx-auto">
+    <section id="work" className="py-12 px-6 max-w-7xl mx-auto">
       <ParallaxSection offset={30}>
         <div className="flex flex-col md:flex-row justify-between items-end mb-6 gap-6">
           <div>
@@ -231,13 +232,16 @@ const CaseStudies = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {projects.map((p, i) => (
-            <motion.div 
+            <motion.a 
               key={i}
+              href={p.link}
+              target="_blank"
+              rel="noopener noreferrer"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="bento-card group cursor-pointer"
+              className="bento-card group cursor-pointer block"
             >
               <div className="flex justify-between items-start mb-12">
                 <div className="p-4 bg-white/5 rounded-2xl group-hover:bg-white group-hover:text-black transition-colors duration-500">
@@ -253,7 +257,7 @@ const CaseStudies = () => {
                 <h4 className="text-3xl font-bold tracking-tight">{p.title}</h4>
                 <p className="text-muted leading-relaxed text-sm">{p.description}</p>
               </div>
-            </motion.div>
+            </motion.a>
           ))}
         </div>
       </ParallaxSection>
@@ -307,7 +311,7 @@ const Superpowers = () => {
 
 const AboutMe = () => {
   return (
-    <section className="py-12 px-6 max-w-7xl mx-auto">
+    <section id="about" className="py-12 px-6 max-w-7xl mx-auto">
       <ParallaxSection offset={50}>
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
           {/* Bio Card */}
@@ -329,9 +333,14 @@ const AboutMe = () => {
               </div>
             </div>
             <div className="mt-12 flex flex-wrap gap-4">
-              <button className="px-8 py-4 bg-white text-black rounded-full font-bold flex items-center gap-2 hover:bg-white/90 transition-colors">
+              <a 
+                href="https://drive.google.com/file/d/1_lfzq-1ncdaM6LkBYzQViYPBbGUBWSwd/view?usp=drivesdk" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="px-8 py-4 bg-white text-black rounded-full font-bold flex items-center gap-2 hover:bg-white/90 transition-colors"
+              >
                 <Download className="w-4 h-4" /> Download Resume
-              </button>
+              </a>
               <div className="px-8 py-4 border border-border rounded-full font-bold flex items-center gap-2">
                 Currently at <span className="text-white">ebm-papst</span>
               </div>
@@ -396,16 +405,19 @@ const AboutMe = () => {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.4 }}
-          className="bento-card md:col-span-4 flex items-center justify-center gap-6"
+          className="bento-card md:col-span-4 flex items-center justify-center gap-4"
         >
-          <a href="#" className="p-4 bg-white/5 rounded-full hover:bg-white hover:text-black transition-all">
+          <a href="https://www.linkedin.com/in/tharani-tharan-dharmalingam-9b229a207/" target="_blank" rel="noopener noreferrer" className="p-4 bg-white/5 rounded-full hover:bg-white hover:text-black transition-all">
             <Linkedin className="w-6 h-6" />
           </a>
-          <a href="#" className="p-4 bg-white/5 rounded-full hover:bg-white hover:text-black transition-all">
+          <a href="mailto:tharanidharma@gmail.com?subject=%20Hey%20Buddy%20_____" className="p-4 bg-white/5 rounded-full hover:bg-white hover:text-black transition-all">
             <Mail className="w-6 h-6" />
           </a>
-          <a href="#" className="p-4 bg-white/5 rounded-full hover:bg-white hover:text-black transition-all">
+          <a href="https://github.com/tharanidharma" target="_blank" rel="noopener noreferrer" className="p-4 bg-white/5 rounded-full hover:bg-white hover:text-black transition-all">
             <Github className="w-6 h-6" />
+          </a>
+          <a href="https://dribbble.com/tharanitharandharmalingam" target="_blank" rel="noopener noreferrer" className="p-4 bg-white/5 rounded-full hover:bg-white hover:text-black transition-all">
+            <Dribbble className="w-6 h-6" />
           </a>
         </motion.div>
       </div>
@@ -508,7 +520,7 @@ const Playground = () => {
               <div className="w-20 h-20 bg-[#00FF00]/10 rounded-3xl flex items-center justify-center border border-[#00FF00]/20">
                 <span className="text-5xl font-black text-[#00FF00] italic">U</span>
               </div>
-              <a href="https://uitoolz.com" target="_blank" rel="noopener noreferrer" className="p-4 bg-white/5 rounded-full hover:bg-white hover:text-black transition-all">
+              <a href="https://www.behance.net/gallery/178389643/uitoolzcom" target="_blank" rel="noopener noreferrer" className="p-4 bg-white/5 rounded-full hover:bg-white hover:text-black transition-all">
                 <ArrowUpRight className="w-6 h-6" />
               </a>
             </div>
@@ -1143,7 +1155,7 @@ const DesignLiterature = () => {
 
 const Footer = () => {
   return (
-    <footer className="py-12 px-6 border-t border-border bg-black relative overflow-hidden">
+    <footer id="contact" className="py-12 px-6 border-t border-border bg-black relative overflow-hidden">
       <div className="max-w-7xl mx-auto text-center relative z-10">
         <motion.h2 
           initial={{ opacity: 0, y: 20 }}
@@ -1156,7 +1168,7 @@ const Footer = () => {
         </motion.h2>
         
         <div className="flex flex-col md:flex-row items-center justify-center gap-8 mb-12">
-          <a href="mailto:tharanidharma@gmail.com" className="group flex items-center gap-4 text-2xl font-bold tracking-tight hover:text-white/60 transition-colors">
+          <a href="mailto:tharanidharma@gmail.com?subject=%20Hey%20Buddy%20_____" className="group flex items-center gap-4 text-2xl font-bold tracking-tight hover:text-white/60 transition-colors">
             tharanidharma@gmail.com
             <div className="p-3 bg-white text-black rounded-full group-hover:scale-110 transition-transform">
               <ArrowUpRight className="w-6 h-6" />
@@ -1165,9 +1177,9 @@ const Footer = () => {
         </div>
 
         <div className="flex flex-wrap justify-center gap-12 text-sm uppercase tracking-[0.3em] font-bold text-muted">
-          <a href="#" className="hover:text-white transition-colors">LinkedIn</a>
-          <a href="#" className="hover:text-white transition-colors">Behance</a>
-          <a href="#" className="hover:text-white transition-colors">Dribbble</a>
+          <a href="https://www.linkedin.com/in/tharani-tharan-dharmalingam-9b229a207/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">LinkedIn</a>
+          <a href="https://www.behance.net/tharanidharmalingam" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Behance</a>
+          <a href="https://dribbble.com/tharanitharandharmalingam" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Dribbble</a>
         </div>
 
         <div className="mt-16 flex flex-col md:flex-row justify-between items-center gap-6 text-[10px] uppercase tracking-widest text-white/20">
@@ -1231,10 +1243,10 @@ export default function App() {
 
       {/* Floating Navigation (Optional but adds to Apple feel) */}
       <nav className="fixed bottom-8 left-1/2 -translate-x-1/2 z-[60] px-6 py-3 bg-black/50 backdrop-blur-xl border border-white/10 rounded-full flex items-center gap-8">
-        <a href="#" className="text-[10px] uppercase tracking-widest font-bold hover:text-white/60 transition-colors">Home</a>
-        <a href="#" className="text-[10px] uppercase tracking-widest font-bold hover:text-white/60 transition-colors">Work</a>
-        <a href="#" className="text-[10px] uppercase tracking-widest font-bold hover:text-white/60 transition-colors">About</a>
-        <a href="#" className="text-[10px] uppercase tracking-widest font-bold hover:text-white/60 transition-colors">Contact</a>
+        <a href="#home" className="text-[10px] uppercase tracking-widest font-bold hover:text-white/60 transition-colors">Home</a>
+        <a href="#work" className="text-[10px] uppercase tracking-widest font-bold hover:text-white/60 transition-colors">Work</a>
+        <a href="#about" className="text-[10px] uppercase tracking-widest font-bold hover:text-white/60 transition-colors">About</a>
+        <a href="#contact" className="text-[10px] uppercase tracking-widest font-bold hover:text-white/60 transition-colors">Contact</a>
       </nav>
     </div>
   );

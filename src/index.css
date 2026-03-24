@@ -38,7 +38,15 @@
 }
 
 .text-gradient {
-  @apply bg-clip-text text-transparent bg-gradient-to-b from-white to-white/40;
+  @apply bg-clip-text text-transparent bg-gradient-to-b from-white via-white to-white/20;
+}
+
+.numeric-gradient {
+  @apply bg-clip-text text-transparent bg-gradient-to-br from-white via-white/80 to-black/40 font-black;
+}
+
+.apple-reveal {
+  @apply overflow-hidden;
 }
 
 @layer utilities {
