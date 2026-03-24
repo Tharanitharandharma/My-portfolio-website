@@ -405,7 +405,7 @@ const AboutMe = () => {
             <Mail className="w-6 h-6" />
           </a>
           <a href="#" className="p-4 bg-white/5 rounded-full hover:bg-white hover:text-black transition-all">
-            <Behance className="w-6 h-6" />
+            <Github className="w-6 h-6" />
           </a>
         </motion.div>
       </div>
