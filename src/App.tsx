@@ -398,14 +398,14 @@ const AboutMe = () => {
           transition={{ delay: 0.4 }}
           className="bento-card md:col-span-4 flex items-center justify-center gap-6"
         >
-          <a href="#" className="p-4 bg-white/5 rounded-full hover:bg-white hover:text-black transition-all">
+          <a href="https://www.linkedin.com/in/tharani-tharan-dharmalingam-9b229a207/" className="p-4 bg-white/5 rounded-full hover:bg-white hover:text-black transition-all">
             <Linkedin className="w-6 h-6" />
           </a>
-          <a href="#" className="p-4 bg-white/5 rounded-full hover:bg-white hover:text-black transition-all">
+          <a href="mailto:tharanidharma@gmail.com?subject=%20Hey%20Buddy%20_____" className="p-4 bg-white/5 rounded-full hover:bg-white hover:text-black transition-all">
             <Mail className="w-6 h-6" />
           </a>
-          <a href="#" className="p-4 bg-white/5 rounded-full hover:bg-white hover:text-black transition-all">
-            <Github className="w-6 h-6" />
+          <a href="https://www.behance.net/tharanidharmalingam" className="p-4 bg-white/5 rounded-full hover:bg-white hover:text-black transition-all">
+            <Behance className="w-6 h-6" />
           </a>
         </motion.div>
       </div>
