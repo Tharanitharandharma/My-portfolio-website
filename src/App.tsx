@@ -96,10 +96,12 @@ const Hero = () => {
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5 }}
-          className="mb-4 inline-flex items-center gap-2 px-4 py-2 bg-white/5 rounded-full border border-white/10"
+          className="mb-6 inline-flex items-center gap-2.5 px-5 py-2.5 bg-white/5 rounded-full border border-white/10 backdrop-blur-md"
         >
-          <Sparkles className="w-4 h-4 text-white/60" />
-          <span className="text-[10px] uppercase tracking-[0.3em] font-bold text-white/60">Senior UI/UX Designer</span>
+          <Sparkles className="w-4 h-4 text-white/70" />
+          <span className="text-xs uppercase tracking-[0.25em] font-bold text-white">Tharani Tharan</span>
+          <span className="text-white/25">•</span>
+          <span className="text-[10px] uppercase tracking-[0.3em] font-semibold text-white/60">Senior UI/UX Designer</span>
         </motion.div>
         <motion.h1 
           initial={{ opacity: 0, y: 20 }}
@@ -116,7 +118,7 @@ const Hero = () => {
           transition={{ delay: 0.5, duration: 1 }}
           className="text-muted text-lg md:text-xl font-medium tracking-widest uppercase"
         >
-          Discover Design Magic with "Me" <AnimatedEmoji emoji="✨" />
+          Discover Design Magic with Tharani Tharan <AnimatedEmoji emoji="✨" />
         </motion.p>
       </motion.div>
 
@@ -181,36 +183,28 @@ const MetricsBar = () => {
 const CaseStudies = () => {
   const projects = [
     {
-      title: "IoT Fan Control App",
-      category: "Product Design / IoT",
-      description: "Enhancing installation, monitoring, and control efficiency for industrial fan systems.",
-      impact: "40% improvement in data monitoring efficiency.",
-      icon: <Cpu className="w-6 h-6" />,
-      link: "#"
-    },
-    {
-      title: "Meeting Room Booking App",
-      category: "UI/UX / Mobile",
-      description: "Exploring the design journey of a streamlined meeting room booking app, prioritizing simplicity and seamless user experience.",
-      impact: "Simplified booking workflows and improved UX.",
-      icon: <Layout className="w-6 h-6" />,
-      link: "https://www.behance.net/gallery/167832435/Meeting-room-Booking-App"
+      title: "ProbHunt",
+      category: "Product Design / AI",
+      description: "Where real-world problems meet real solutions. Submit · Research · Solve · Learn.",
+      impact: "Connecting innovators with validated real-world problem statements.",
+      icon: <Sparkles className="w-6 h-6 text-white" />,
+      link: "https://www.behance.net/gallery/254159551/ProbHunt"
     },
     {
       title: "Uitoolz Design Resources",
       category: "Design Resources / Web",
-      description: "Elevate your creativity at uitoolz.com – your one-stop destination for premium design resources. Simplify your projects with curated fonts, icons, templates, and graphics.",
-      impact: "One-stop solution for designers worldwide.",
-      icon: <ShoppingBag className="w-6 h-6" />,
+      description: "Elevate your creativity at uitoolz.com – your one-stop destination for premium design resources. Curated fonts, icons, templates, and UI components.",
+      impact: "One-stop solution for designers and product teams worldwide.",
+      icon: <ShoppingBag className="w-6 h-6 text-white" />,
       link: "https://www.behance.net/gallery/178389643/uitoolzcom"
     },
     {
-      title: "Quality Control Story",
-      category: "Management Tool / Dashboard",
-      description: "A powerful management tool used to identify and solve problems in an organization. Transitioning from traditional paper-based approach to a user-friendly digital dashboard.",
-      impact: "Modernized QC Story process for organizations.",
-      icon: <Search className="w-6 h-6" />,
-      link: "https://www.behance.net/gallery/179202627/Quality-Control-Application"
+      title: "Bike Community App",
+      category: "Mobile App / Social Media",
+      description: "A premium mobile experience designed to bridge the gap between solo riding and community exploration.",
+      impact: "A social platform bridging solo riding with group discovery.",
+      icon: <Users className="w-6 h-6 text-white" />,
+      link: "https://www.behance.net/gallery/246831781/Bike-Community-App"
     }
   ];
 
@@ -230,7 +224,7 @@ const CaseStudies = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {projects.map((p, i) => (
             <motion.a 
               key={i}
@@ -241,7 +235,7 @@ const CaseStudies = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="bento-card group cursor-pointer block"
+              className="bento-card group cursor-pointer block hover:border-white/30"
             >
               <div className="flex justify-between items-start mb-12">
                 <div className="p-4 bg-white/5 rounded-2xl group-hover:bg-white group-hover:text-black transition-colors duration-500">
@@ -254,7 +248,7 @@ const CaseStudies = () => {
               
               <div className="space-y-4">
                 <span className="text-[10px] uppercase tracking-widest text-muted font-bold">{p.category}</span>
-                <h4 className="text-3xl font-bold tracking-tight">{p.title}</h4>
+                <h4 className="text-3xl font-bold tracking-tight group-hover:text-white transition-colors">{p.title}</h4>
                 <p className="text-muted leading-relaxed text-sm">{p.description}</p>
               </div>
             </motion.a>
@@ -270,7 +264,7 @@ const Superpowers = () => {
     { title: "Creativity", desc: "I see design as magic that turns complex problems into simple, beautiful solutions.", emoji: "🎨", span: "md:col-span-2" },
     { title: "User Experiences", desc: "I step into the user’s world to feel, understand, and craft experiences they truly love.", emoji: "🧠", span: "md:col-span-1" },
     { title: "Low-Code Magic", desc: "I create beautiful websites with design spells using Framer, WordPress, and a spark of code magic", emoji: "🪄", span: "md:col-span-1" },
-    { title: "Versatility", desc: "From UX writing to SEO and marketing design, I adapt like a creative chameleon.", emoji: "🦎", span: "md:col-span-2" }
+    { title: "AI, Vibe Design & Vibe Coding", desc: "Supercharging modern workflows through vibe design and vibe coding — blending intuitive aesthetics, AI agents, and rapid code prototyping into high-impact products.", emoji: "⚡", span: "md:col-span-2" }
   ];
 
   return (
@@ -328,16 +322,17 @@ const AboutMe = () => {
                   <h2 className="text-sm uppercase tracking-[0.4em] text-muted">About Me</h2>
                 </div>
                 <p className="text-2xl md:text-3xl font-medium tracking-tight leading-tight">
-                  I'm <span className="text-white font-bold">Tharani Tharan</span>, a <span className="text-white">Senior UI/UX Designer</span> with over 7 years of experience crafting intuitive digital experiences. My approach blends <span className="text-white/40 italic">Lean UX</span> with user-centered design to drive efficiency and engagement. <AnimatedEmoji emoji="👋" />
+                  I'm <span className="text-white font-bold">Tharani Tharan</span>, a <span className="text-white">Senior UI/UX Designer</span> with 7 years of experience crafting intuitive digital experiences. My approach blends <span className="text-white/40 italic">Lean UX</span> with user-centered design to drive efficiency and engagement. <AnimatedEmoji emoji="👋" />
                 </p>
               </div>
             </div>
             <div className="mt-12 flex flex-wrap gap-4">
               <a 
-                href="https://drive.google.com/file/d/1_lfzq-1ncdaM6LkBYzQViYPBbGUBWSwd/view?usp=drivesdk" 
+                href="https://drive.google.com/file/d/1motEjNYS3dkzeo6cmo12Nubk6uy109FE/view?usp=sharing" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="px-8 py-4 bg-white text-black rounded-full font-bold flex items-center gap-2 hover:bg-white/90 transition-colors"
+                title="Download Tharani Tharan Sr. UI/UX Designer Resume (PDF)"
+                className="px-8 py-4 bg-white text-black rounded-full font-bold flex items-center gap-2 hover:bg-white/90 hover:scale-[1.02] active:scale-[0.98] transition-all shadow-lg shadow-white/10"
               >
                 <Download className="w-4 h-4" /> Download Resume
               </a>
@@ -607,11 +602,12 @@ const Philosophy = () => {
           {/* 7x Metric Card */}
           <motion.div 
             whileHover={{ scale: 1.05 }}
-            className="bento-card md:col-span-4 bg-white text-black flex flex-col items-center justify-center text-center py-12"
+            className="bento-card md:col-span-4 bg-gradient-to-br from-neutral-900 to-[#121212] border border-white/10 text-white flex flex-col items-center justify-center text-center py-12 relative overflow-hidden group shadow-[0_0_40px_rgba(255,255,255,0.03)]"
           >
-            <span className="text-8xl font-black tracking-tighter mb-2">7x</span>
-            <p className="text-xs uppercase tracking-widest font-black mb-2">Faster productivity</p>
-            <p className="text-[10px] opacity-60 font-medium">Experience the AI-powered difference!</p>
+            <div className="absolute inset-0 bg-gradient-to-t from-white/[0.04] to-transparent pointer-events-none" />
+            <span className="text-8xl font-black tracking-tighter mb-2 text-white">7x</span>
+            <p className="text-xs uppercase tracking-widest font-black mb-2 text-white">Faster productivity</p>
+            <p className="text-[11px] text-white/80 font-medium tracking-wide">Experience the AI-powered difference!</p>
           </motion.div>
 
           {/* Black Iris Quote Card */}
@@ -790,37 +786,55 @@ const Skills = () => {
       title: "Design Ecosystem",
       skills: ["Figma", "Adobe XD", "Photoshop", "Illustrator", "Balsamiq", "Canva"],
       icon: <Figma className="w-8 h-8" />,
-      desc: "Crafting pixel-perfect interfaces and scalable design systems.",
+      desc: "Crafting pixel-perfect interfaces, vector art, and intuitive user experiences.",
       color: "from-blue-500/20 to-transparent",
       accent: "text-blue-400",
-      span: "md:col-span-2 md:row-span-2"
+      span: "md:col-span-2 md:row-span-1"
+    },
+    {
+      title: "Design Systems",
+      skills: ["Variables", "Components", "Tokens", "Auto Layout", "Design Architecture", "Style Guides"],
+      icon: <Layers className="w-8 h-8" />,
+      desc: "Multi-brand systematic architecture using variables, component libraries, and cross-platform tokens.",
+      color: "from-cyan-500/20 to-transparent",
+      accent: "text-cyan-400",
+      span: "md:col-span-1 md:row-span-1"
+    },
+    {
+      title: "AI & Agentic Workflows",
+      skills: ["Figma Agent", "Make", "Claude", "Antigravity", "Google AI Studio", "Prompt Engineering"],
+      icon: <Sparkles className="w-8 h-8" />,
+      desc: "Accelerating ideation and deployment using AI design agents, visual automation, Claude, and Google AI Studio.",
+      color: "from-fuchsia-500/20 to-transparent",
+      accent: "text-fuchsia-400",
+      span: "md:col-span-2 md:row-span-1"
     },
     {
       title: "UX Strategy",
-      skills: ["User Flow", "Wireframing", "Prototyping", "Usability Testing", "WCAG 2.2", "Design Systems"],
-      icon: <Layout className="w-6 h-6" />,
-      desc: "Human-centered approach to complex problems.",
+      skills: ["User Flow", "Wireframing", "Prototyping", "Usability Testing", "WCAG 2.2"],
+      icon: <Layout className="w-8 h-8" />,
+      desc: "Human-centered approach to solve complex enterprise and consumer problems.",
       color: "from-purple-500/20 to-transparent",
       accent: "text-purple-400",
       span: "md:col-span-1 md:row-span-1"
     },
     {
-      title: "Collaboration",
-      skills: ["Miro", "Notion", "Jira", "Lean UX", "Design Sprints"],
-      icon: <Users className="w-6 h-6" />,
-      desc: "Bridging the gap between design and engineering.",
-      color: "from-green-500/20 to-transparent",
-      accent: "text-green-400",
-      span: "md:col-span-1 md:row-span-1"
-    },
-    {
       title: "Development & Low-Code",
-      skills: ["Framer", "WordPress", "HTML/CSS", "SEO", "Marketing Design"],
-      icon: <Cpu className="w-6 h-6" />,
-      desc: "Bringing designs to life with modern web technologies.",
+      skills: ["Framer", "WordPress", "HTML/CSS", "SEO", "Vibe Coding"],
+      icon: <Cpu className="w-8 h-8" />,
+      desc: "Bringing high-fidelity visions to life with modern web builders and interactive code prototypes.",
       color: "from-orange-500/20 to-transparent",
       accent: "text-orange-400",
       span: "md:col-span-2 md:row-span-1"
+    },
+    {
+      title: "Collaboration & Agile",
+      skills: ["Miro", "Notion", "Jira", "Lean UX", "Google Design Sprints"],
+      icon: <Users className="w-8 h-8" />,
+      desc: "Uniting product design, software engineering, and stakeholder vision in agile harmony.",
+      color: "from-green-500/20 to-transparent",
+      accent: "text-green-400",
+      span: "md:col-span-1 md:row-span-1"
     }
   ];
 
@@ -836,7 +850,7 @@ const Skills = () => {
             <h3 className="text-5xl md:text-7xl font-bold tracking-tighter">Skills & Tools <AnimatedEmoji emoji="🛠️" /></h3>
           </div>
           <p className="max-w-md text-muted text-lg font-light leading-relaxed">
-            A curated selection of tools and methodologies I use to build world-class digital products.
+            A curated selection of tools, agentic workflows, and methodologies I use to build world-class digital products.
           </p>
         </div>
 
@@ -851,7 +865,7 @@ const Skills = () => {
               className={`relative p-10 rounded-[48px] bg-white/[0.02] backdrop-blur-3xl border border-white/10 overflow-hidden group hover:border-white/20 transition-all duration-500 ${cat.span}`}
             >
               <div className="relative z-10 h-full flex flex-col">
-                <div className="flex justify-between items-start mb-12">
+                <div className="flex justify-between items-start mb-8">
                   <div className={`p-4 bg-white/5 rounded-2xl ${cat.accent} group-hover:bg-white group-hover:text-black transition-all duration-500`}>
                     {cat.icon}
                   </div>
@@ -861,14 +875,14 @@ const Skills = () => {
                 </div>
 
                 <div className="mt-auto">
-                  <h4 className="text-3xl font-bold tracking-tight mb-4">{cat.title}</h4>
-                  <p className="text-muted text-sm mb-8 max-w-xs">{cat.desc}</p>
+                  <h4 className="text-2xl md:text-3xl font-bold tracking-tight mb-3">{cat.title}</h4>
+                  <p className="text-muted text-sm mb-6 max-w-md">{cat.desc}</p>
                   
                   <div className="flex flex-wrap gap-2">
                     {cat.skills.map((s, j) => (
                       <span 
                         key={j} 
-                        className="px-4 py-2 bg-white/5 rounded-full text-[10px] uppercase tracking-widest font-bold text-white/60 hover:bg-white hover:text-black transition-all cursor-default border border-white/5"
+                        className="px-3.5 py-1.5 bg-white/5 rounded-full text-[10px] uppercase tracking-widest font-bold text-white/70 hover:bg-white hover:text-black transition-all cursor-default border border-white/5"
                       >
                         {s}
                       </span>
@@ -894,11 +908,31 @@ const EducationCerts = () => {
   const awards = [
     {
       title: "Recognized by Google Developers Group",
-      desc: "Earned acclaim from Google Developers Group, honored for innovation and collaboration. Join me in celebrating excellence in design."
+      desc: "Earned acclaim from Google Developers Group, honored for innovation and collaboration. Celebrating design excellence and tech for good.",
+      link: "https://www.linkedin.com/posts/tharani-tharan-dharmalingam-9b229a207_techforgood-googletechforgood-techtastic-activity-7091711783823962113-_iUm?utm_source=share&utm_medium=member_desktop"
     },
     {
       title: "7 Days Design challenge 1st prize",
-      desc: "Awarded 1st prize in the 7 Days Design challenge within the Madrasters community."
+      desc: "Awarded 1st prize in the intensive 7 Days Design challenge within the vibrant Madrasters design community.",
+      link: "https://lnkd.in/p/gFPJ6mdP"
+    }
+  ];
+
+  const certs = [
+    { 
+      title: "Google UX Design", 
+      issuer: "Google", 
+      link: "https://www.coursera.org/user/4472462cc170451cd5e0fc1d2cb7d36a" 
+    },
+    { 
+      title: "Digital Skills: UX", 
+      issuer: "Accenture", 
+      link: "https://www.futurelearn.com/certificates/p0uxcf8" 
+    },
+    { 
+      title: "IBM Design Thinking", 
+      issuer: "IBM", 
+      link: "https://www.credly.com/badges/51218f9e-a0fb-4e93-a977-606e5c9da08b/public_url" 
     }
   ];
 
@@ -938,28 +972,27 @@ const EducationCerts = () => {
               <h2 className="text-sm uppercase tracking-[0.4em] text-muted">Certifications</h2>
             </div>
             <div className="space-y-6">
-              {[
-                { title: "Google UX Design", issuer: "Google" },
-                { title: "IBM Design Thinking", issuer: "IBM" },
-                { title: "Digital Skills: UX", issuer: "Accenture" }
-              ].map((cert, i) => (
-                <motion.div 
+              {certs.map((cert, i) => (
+                <motion.a 
                   key={i}
+                  href={cert.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   initial={{ opacity: 0, x: 20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.1 }}
-                  className="flex items-center justify-between p-6 border border-border rounded-2xl hover:bg-white/5 transition-colors group"
+                  className="flex items-center justify-between p-6 border border-border rounded-2xl hover:bg-white/5 hover:border-white/30 transition-all group cursor-pointer block"
                 >
                   <div className="flex items-center gap-4">
                     <Award className="w-5 h-5 text-white/40 group-hover:text-white transition-colors" />
                     <div>
-                      <h5 className="font-bold tracking-tight">{cert.title}</h5>
+                      <h5 className="font-bold tracking-tight group-hover:text-white transition-colors">{cert.title}</h5>
                       <p className="text-xs text-muted uppercase tracking-widest">{cert.issuer}</p>
                     </div>
                   </div>
-                  <ExternalLink className="w-4 h-4 text-white/20 group-hover:text-white transition-colors" />
-                </motion.div>
+                  <ExternalLink className="w-4 h-4 text-white/20 group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
+                </motion.a>
               ))}
             </div>
           </div>
@@ -973,26 +1006,38 @@ const EducationCerts = () => {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {awards.map((award, i) => (
-              <motion.div 
+              <motion.a 
                 key={i}
+                href={award.link}
+                target="_blank"
+                rel="noopener noreferrer"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="relative p-12 rounded-[40px] bg-gradient-to-br from-neutral-900 to-black border border-white/5 overflow-hidden group hover:border-white/20 transition-all duration-500"
+                className="relative p-12 rounded-[40px] bg-gradient-to-br from-neutral-900 to-black border border-white/5 overflow-hidden group hover:border-white/20 hover:scale-[1.01] transition-all duration-500 block cursor-pointer"
               >
                 <div className="relative z-10">
-                  <div className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center mb-8 group-hover:bg-white group-hover:text-black transition-all duration-500">
-                    <Award className="w-6 h-6" />
+                  <div className="flex justify-between items-start mb-8">
+                    <div className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all duration-500">
+                      <Award className="w-6 h-6" />
+                    </div>
+                    <div className="p-3 bg-white/5 rounded-full text-white/40 group-hover:text-white group-hover:bg-white/10 transition-colors">
+                      <ArrowUpRight className="w-5 h-5" />
+                    </div>
                   </div>
-                  <h4 className="text-3xl font-bold tracking-tight mb-4 leading-tight">{award.title}</h4>
+                  <h4 className="text-3xl font-bold tracking-tight mb-4 leading-tight group-hover:text-white transition-colors">{award.title}</h4>
                   <p className="text-muted text-lg leading-relaxed font-light">{award.desc}</p>
+                  <div className="mt-8 flex items-center gap-2 text-xs uppercase tracking-widest text-white/40 group-hover:text-white/80 font-semibold transition-colors">
+                    <span>View Post on LinkedIn</span>
+                    <ArrowUpRight className="w-3.5 h-3.5" />
+                  </div>
                 </div>
                 
                 {/* Decorative Elements */}
                 <div className="absolute -right-10 -bottom-10 w-40 h-40 bg-white/5 rounded-full blur-3xl group-hover:bg-white/10 transition-all" />
                 <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-              </motion.div>
+              </motion.a>
             ))}
           </div>
         </div>
@@ -1247,34 +1292,39 @@ const DesignLiterature = () => {
 
 const Footer = () => {
   return (
-    <footer id="contact" className="py-12 px-6 border-t border-border bg-black relative overflow-hidden">
+    <footer id="contact" className="pt-16 sm:pt-24 pb-32 sm:pb-36 px-4 sm:px-6 border-t border-border bg-black relative overflow-hidden">
       <div className="max-w-7xl mx-auto text-center relative z-10">
         <motion.h2 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-6xl md:text-[12rem] font-black tracking-tighter uppercase leading-none mb-16"
+          className="text-5xl sm:text-7xl md:text-8xl lg:text-[10rem] xl:text-[12rem] font-black tracking-tighter uppercase leading-[0.9] mb-10 sm:mb-16 break-words"
         >
           Let's <br />
           <span className="text-white/20">Connect</span>
         </motion.h2>
         
-        <div className="flex flex-col md:flex-row items-center justify-center gap-8 mb-12">
-          <a href="mailto:tharanidharma@gmail.com?subject=%20Hey%20Buddy%20_____" className="group flex items-center gap-4 text-2xl font-bold tracking-tight hover:text-white/60 transition-colors">
-            tharanidharma@gmail.com
-            <div className="p-3 bg-white text-black rounded-full group-hover:scale-110 transition-transform">
-              <ArrowUpRight className="w-6 h-6" />
+        <div className="flex flex-col items-center justify-center mb-10 sm:mb-14 px-2 max-w-full">
+          <a 
+            href="mailto:tharanidharma@gmail.com?subject=%20Hey%20Buddy%20_____" 
+            className="group inline-flex items-center gap-3 sm:gap-4 px-5 sm:px-8 py-3.5 sm:py-4 rounded-full bg-white/5 border border-white/10 hover:border-white/30 hover:bg-white/10 transition-all max-w-full shadow-lg"
+          >
+            <span className="text-sm sm:text-xl md:text-2xl font-bold tracking-tight text-white group-hover:text-white/80 transition-colors break-all sm:break-normal">
+              tharanidharma@gmail.com
+            </span>
+            <div className="p-2 sm:p-2.5 bg-white text-black rounded-full group-hover:scale-110 transition-transform flex-shrink-0">
+              <ArrowUpRight className="w-4 h-4 sm:w-5 sm:h-5" />
             </div>
           </a>
         </div>
 
-        <div className="flex flex-wrap justify-center gap-12 text-sm uppercase tracking-[0.3em] font-bold text-muted">
-          <a href="https://www.linkedin.com/in/tharani-tharan-dharmalingam-9b229a207/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">LinkedIn</a>
-          <a href="https://www.behance.net/tharanidharmalingam" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Behance</a>
-          <a href="https://dribbble.com/tharanitharandharmalingam" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Dribbble</a>
+        <div className="flex flex-wrap justify-center gap-6 sm:gap-10 md:gap-12 text-xs sm:text-sm uppercase tracking-[0.2em] sm:tracking-[0.3em] font-bold text-muted">
+          <a href="https://www.linkedin.com/in/tharani-tharan-dharmalingam-9b229a207/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors py-1">LinkedIn</a>
+          <a href="https://www.behance.net/tharanidharmalingam" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors py-1">Behance</a>
+          <a href="https://dribbble.com/tharanitharandharmalingam" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors py-1">Dribbble</a>
         </div>
 
-        <div className="mt-16 flex flex-col md:flex-row justify-between items-center gap-6 text-[10px] uppercase tracking-widest text-white/20">
+        <div className="mt-14 sm:mt-18 flex flex-col sm:flex-row justify-between items-center gap-4 text-[10px] uppercase tracking-widest text-white/30 text-center sm:text-left">
           <p>© 2026 Tharani Tharan. All Rights Reserved.</p>
           <p>Designed for Digital Excellence</p>
         </div>
@@ -1289,32 +1339,9 @@ const Footer = () => {
 // --- Main App ---
 
 export default function App() {
-  const [isLoaded, setIsLoaded] = useState(false);
-
-  useEffect(() => {
-    setIsLoaded(true);
-  }, []);
-
   return (
-    <div className="min-h-screen selection:bg-white selection:text-black">
-      <AnimatePresence>
-        {!isLoaded && (
-          <motion.div 
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[100] bg-black flex items-center justify-center"
-          >
-            <motion.div 
-              animate={{ opacity: [0, 1, 0] }}
-              transition={{ duration: 1.5, repeat: Infinity }}
-              className="text-2xl font-black tracking-tighter uppercase"
-            >
-              Loading...
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-
-      <main className="relative">
+    <div className="min-h-screen selection:bg-white selection:text-black overflow-x-hidden">
+      <main className="relative overflow-x-hidden">
         <Hero />
         <MetricsBar />
         <CaseStudies />
@@ -1333,8 +1360,8 @@ export default function App() {
         <Footer />
       </main>
 
-      {/* Floating Navigation (Optional but adds to Apple feel) */}
-      <nav className="fixed bottom-8 left-1/2 -translate-x-1/2 z-[60] px-6 py-3 bg-black/50 backdrop-blur-xl border border-white/10 rounded-full flex items-center gap-8">
+      {/* Floating Navigation */}
+      <nav className="fixed bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 z-[60] px-5 sm:px-7 py-2.5 sm:py-3 bg-black/60 backdrop-blur-xl border border-white/10 rounded-full flex items-center gap-5 sm:gap-8 shadow-2xl max-w-[94vw] overflow-x-auto no-scrollbar">
         <a href="#home" className="text-[10px] uppercase tracking-widest font-bold hover:text-white/60 transition-colors">Home</a>
         <a href="#work" className="text-[10px] uppercase tracking-widest font-bold hover:text-white/60 transition-colors">Work</a>
         <a href="#about" className="text-[10px] uppercase tracking-widest font-bold hover:text-white/60 transition-colors">About</a>
